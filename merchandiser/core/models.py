@@ -1,7 +1,6 @@
 from django.db import models
 
 from django_better_admin_arrayfield.models.fields import ArrayField
-from mptt.models import MPTTModel, TreeForeignKey
 
 
 class CommercialNetwork(models.Model):
@@ -21,12 +20,12 @@ class Shop(models.Model):
         return '{}-{} {}'.format(self.commercial_network.name, self.format, self.address)
 
 
-class Category(MPTTModel):
-    name = models.CharField(max_length=64, unique=True)
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+class Category(models.Model):
+    name = models.CharField('Product category', max_length=64)
+    parent = models.ForeignKey('core.category', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
 
-    class MPTTMeta:
-        order_insertion_by = ['name']
+    def __str__(self):
+        return self.name
 
 
 class Product(models.Model):

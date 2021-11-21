@@ -3,8 +3,8 @@ from rest_framework.views import APIView
 from rest_framework import generics
 from django_filters import rest_framework as filters
 
-from .models import ProductAvailability
-from .serializers import ProductAvailabilitySerializer
+from .models import ProductAvailability, Category
+from .serializers import ProductAvailabilitySerializer, CategoryProductSerializer
 from .filters import ProductAvailabilityFilter
 
 
@@ -15,5 +15,6 @@ class ProductAvailabilityListView(generics.ListAPIView):
     filter_class = ProductAvailabilityFilter
 
 
-class ProductAvailabilityTreeView(generics.ListAPIView):
-    pass
+class ProductAvailabilityTreeView(generics.RetrieveAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategoryProductSerializer

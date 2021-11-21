@@ -24,9 +24,9 @@ class ProductAvailabilityFilter(django_filters.FilterSet):
         field_name = 'product__name',
         lookup_expr = 'in'
     )
-    product_category = django_filters.CharFilter(
-        field_name = 'product__category',
-        lookup_expr='icontains'
+    product_category = CharFilterInFilter(
+        field_name = 'product__category__name',
+        lookup_expr = 'in'
     )
     min_number = django_filters.NumberFilter(field_name="number_in_shop", lookup_expr='gte')
     max_number = django_filters.NumberFilter(field_name="number_in_shop", lookup_expr='lte')

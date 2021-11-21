@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django_better_admin_arrayfield.admin.mixins import DynamicArrayMixin
 
-from .models import CommercialNetwork, Shop, Product, ProductAvailability
+from .models import CommercialNetwork, Shop, Product, ProductAvailability, Category
 
 
 class ArrayModelAdmin(admin.ModelAdmin, DynamicArrayMixin):
@@ -12,3 +12,4 @@ admin.site.register(CommercialNetwork, ArrayModelAdmin)
 admin.site.register(Shop)
 admin.site.register(Product, ArrayModelAdmin)
 admin.site.register(ProductAvailability)
+admin.site.register(Category)
