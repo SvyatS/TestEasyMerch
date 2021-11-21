@@ -1,6 +1,6 @@
 import django_filters
 
-from .models import ProductAvailability
+from .models import ProductAvailability, Category
 
 
 class CharFilterInFilter(django_filters.BaseInFilter, django_filters.CharFilter):
@@ -12,7 +12,7 @@ class ProductAvailabilityFilter(django_filters.FilterSet):
         field_name = 'shop__commercial_network__name',
         lookup_expr = 'in'
     )
-    format = CharFilterInFilter(
+    shop_format = CharFilterInFilter(
         field_name = 'shop__format',
         lookup_expr = 'in'
     )
@@ -35,7 +35,7 @@ class ProductAvailabilityFilter(django_filters.FilterSet):
         model = ProductAvailability
         fields = (
             'commercial_network',
-            'format',
+            'shop_format',
             'address',
             'product',
             'product_category',

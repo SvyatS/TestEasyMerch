@@ -4,8 +4,8 @@ from django_better_admin_arrayfield.models.fields import ArrayField
 
 
 class CommercialNetwork(models.Model):
-    name = models.CharField('Commercial Network name', max_length=128)
-    format = ArrayField(models.CharField('Commercial Network format', max_length=128))
+    name = models.CharField('Name', max_length=128)
+    network_format = ArrayField(models.CharField('Format', max_length=128))
 
     def __str__(self):
         return self.name
@@ -13,8 +13,8 @@ class CommercialNetwork(models.Model):
 
 class Shop(models.Model):
     commercial_network = models.ForeignKey(CommercialNetwork, related_name='shop', on_delete=models.CASCADE)
-    format = models.CharField('Shop format', max_length=128, blank=True, null=True)
-    address = models.CharField('Shop address', max_length=256)
+    format = models.CharField('Format', max_length=128)
+    address = models.CharField('Address', max_length=256)
 
     def __str__(self):
         return '{}-{} {}'.format(self.commercial_network.name, self.format, self.address)
@@ -29,7 +29,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField('Product name', max_length=128)
+    name = models.CharField('Name', max_length=128)
     category = models.ForeignKey(Category, related_name='product', on_delete=models.CASCADE)
 
     def __str__(self):
