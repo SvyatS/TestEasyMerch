@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EasyMerchExc2</title>
+    <link rel="stylesheet" href="{% static 'css/exc_2.css' %}" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="container__title">TEST 2</h1>
+        <div class="data">
+            <div class="data__task">
+                <div class="data__task-title">Сделать хеш-таблицы по категориям и товарам [{id:''}] -> {id:{}}}</div>
+                <div class="data_task-info" id="task-info-1"></div>
+            </div>
+            <div class="data__task">
+                <div class="data__task-title">Отрисовать на странице дерево категорий и товаров (вывести в дереве названия товаров и категорий )</div>
+                <div class="data_task-info" id="task-info-2"></div>
+            </div>
+            <div class="data__task">
+                <div class="data__task-title">Отрисовать на странице дерево категорий и товаров только для категорий: 169,172</div>
+                <div class="data_task-info" id="task-info-3"></div>
+            </div>
+            <div class="data__task">
+                <div class="data__task-title">преобразовать shop_skus в массив объектов в виде:[{shop_id: 1, sku_id: 0, matrix_type_id: 0},{..]</div>
+                <div class="data_task-info" id="task-info-4"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const mobile_init = {
+            skus: [
+                {
+                    id: 1,
+                    name: 'Coca-Cola',
+                    category_id: 1
+                },
+                {
+                    id: 2,
+                    name: 'Santo Stefano',
+                    category_id: 2
+                },
+                {
+                    id: 3,
+                    name: 'Guiness',
+                    category_id: 3
+                },
+            ],
+            categories: [
+                {
+                    id: 1,
+                    name: 'Напитки'
+                },
+                {
+                    id: 2,
+                    name: 'Газировки',
+                    parent_id: 1
+                },
+                {
+                    id: 3,
+                    name: 'Вина',
+                    parent_id: 1
+                },
+                {
+                    id: 4,
+                    name: 'Пиво',
+                    parent_id: 3
+                },
+            ],
+            shop_skus:  {
+                1: {
+                    1: [
+                        { sku_id: 1 },
+                        { sku_id: 2 },
+                    ]
+                }
+            }
+        }
+    </script>
+    <script src="{% static 'js/exc_2.js' %}" type="text/javascript"></script>
+</body>
+</html>

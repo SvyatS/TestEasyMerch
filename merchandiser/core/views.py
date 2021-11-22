@@ -1,5 +1,5 @@
-from rest_framework.response import Response
-from rest_framework.views import APIView
+from django.shortcuts import render
+from django.views.generic import View
 from rest_framework import generics
 from django_filters import rest_framework as filters
 
@@ -18,3 +18,9 @@ class ProductAvailabilityListView(generics.ListAPIView):
 class ProductAvailabilityTreeView(generics.RetrieveAPIView):
     queryset = Category.objects.all()
     serializer_class = CategoryProductSerializer
+
+
+class Exc2(View):
+    @staticmethod
+    def get(request):
+        return render(request, 'exc2.html')

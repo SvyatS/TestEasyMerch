@@ -1,0 +1,31 @@
+body {
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    background-color: #0C1116;
+    color: #C9D1D9;
+}
+.container__title {
+    text-align: center;
+}
+.data {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid #C9D1D9;
+    border-radius: 4px;
+    max-width: 800px;
+}
+.data__task {
+    padding: 20px;
+}
+.data__task-title{
+    padding-bottom: 7px;
+}
+.data_task-info {
+    background-color: #161A22;
+    border-radius: 4px;
+    padding: 15px;
+}
+.tree-item{
+    padding-left: 20px;
+}
