@@ -19,7 +19,10 @@
                 <div class="data_task-info" id="task-info-2"></div>
             </div>
             <div class="data__task">
-                <div class="data__task-title">Отрисовать на странице дерево категорий и товаров только для категорий: 169,172</div>
+                <div class="data__task-title">
+                    Отрисовать на странице дерево категорий и товаров только для категорий: 169,172. <br><br>
+                    //Для примера вывел 1 и 2 категории. Категории можно указать в массиве rendering_categories в файле exc_2.js
+                </div>
                 <div class="data_task-info" id="task-info-3"></div>
             </div>
             <div class="data__task">
@@ -71,8 +74,28 @@
             shop_skus:  {
                 1: {
                     1: [
-                        { sku_id: 1 },
-                        { sku_id: 2 },
+                        {
+                            sku_id: 1,
+                            date_end_days: 3
+                        },
+                        {
+                            sku_id: 2,
+                            date_end_days: 12
+                        },
+                        {
+                            sku_id: 3,
+                            date_end_days: 555
+                        },
+                    ],
+                    2: [
+                        {
+                            sku_id: 2,
+                            date_end_days: 1123
+                        },
+                        {
+                            sku_id: 3,
+                            date_end_days: 567
+                        },
                     ]
                 }
             }
